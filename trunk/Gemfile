@@ -29,3 +29,6 @@ gem 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+# cmw - this may have to be installed using gem install mysql
+gem 'mysql'
