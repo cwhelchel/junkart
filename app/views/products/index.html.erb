@@ -1,28 +1,31 @@
-<h1>Listing products</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Image</th>
-    <th>Price</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.description %></td>
-    <td><%= product.image %></td>
-    <td><%= product.price %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div id="product_list">
+  <h1>Listing products</h1>
+  
+  <table>
+  
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= image_tag(product.image, :class => 'list_image') %></td>
+      <td class="list_description">
+        <dl>
+          <dt><%= product.name %></dt>
+          <dd>
+            <%= truncate(strip_tags(product.description), :length => 100) %>
+          </dd>
+        </dl>
+      </td>
+      
+      <td><%= product.price %></td>
+      <td class="list_actions">
+        <%= link_to 'Show', product %>
+        <%= link_to 'Edit', edit_product_path(product) %>
+        <%= link_to 'Destroy', product, :confirm => 'Are you sure?',
+                                        :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>
 
 <br />
 
