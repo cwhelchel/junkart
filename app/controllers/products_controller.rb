@@ -1,3 +1,5 @@
+# this controller is used to administer the available the junk art.
+# administered via editing, creating, or deleting art from the db
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
