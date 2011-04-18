@@ -1,0 +1,20 @@
+<h1>Welcome to the Junkman's Store</h1>
+
+<div class="list_actions">
+  Sort by:
+  <%= link_to 'Name', :controller => "store", :action => "sort", :id => 'name' %>
+  <%= link_to 'Price', :controller => "store", :action => "sort", :id => 'price' %>
+  
+  Filter by:
+  <%= collection_select :category,
+                        :id,
+                        Category.all,
+                        'id',
+                        'name',
+                        {:selected =>  session[:cat_filter].to_i},
+                        :onchange =>"document.location = 'http://localhost:3000/store/sort/category/' + this.value" %>
+</div>
+
+<%= render 'list' %>
+
+
