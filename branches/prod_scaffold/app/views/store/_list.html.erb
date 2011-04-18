@@ -1,0 +1,23 @@
+<div id="product_list">
+  <h1>Listing products</h1>
+  
+  <table>
+  
+  <% @art.each do |art_item| %>
+    <tr>
+      <td><%= image_tag(art_item.image, :class => 'list_image') %></td>
+      <td class="list_description">
+        <dl>
+          <dt><%= art_item.name %></dt>
+          <dd>
+            <%= truncate(strip_tags(art_item.description), :length => 100) %>
+          </dd>
+        </dl>
+      </td>
+      
+      <td><%= art_item.price %></td>
+
+    </tr>
+  <% end %>
+  </table>
+</div>
