@@ -3,62 +3,108 @@ Stolen from pragprog's depot application
 http://media.pragprog.com/titles/rails4/code/depot_b/public/stylesheets/depot.css
 */
 
-/* Global styles */
+/*
+Global styles
+*/
 
 #store #notice {
-        color: #000;
-        border: 2px solid red;
-        padding: 1em;
-        margin-bottom: 2em;
-        background-color: #f0f0f0;
-        font: bold smaller sans-serif;
+    color: #000;
+    border: 2px solid red;
+    padding: 1em;
+    margin-bottom: 2em;
+    background-color: #f0f0f0;
+    font: bold smaller sans-serif;
 }
-
 
 #store h1 {
-        font:  150% sans-serif;
-        color: #226;
-        border-bottom: 3px dotted #77d;
+    font:  150% sans-serif;
+    color: #226;
+    border-bottom: 3px dotted #77d;
 }
 
-/* Styles for products/index */
+/*
+Styles for the top-menu
+*/
+
+#top-menu {
+    margin-left: 15em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#top-menu td {
+    font: 110% sans-serif;
+    padding-right: 2em;
+}
+
+#top-menu a {
+    color: #666;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#top-menu a:hover {
+    color: #fff;
+    background-color:#000;
+    text-decoration: underline;
+}
+
+/*
+Styles form the main content
+*/
+
+#main-content {
+    margin-left: 15em;
+    padding-top: 4ex;
+}
+
+#main-content .list_actions {
+    font-size:    x-small;
+    text-align:   right;
+    padding-left: 1em;
+    padding-right: 3em;
+}
+
+/*
+Styles for products/index
+*/
 
 #product_list table {
-        border-collapse: collapse;
+    border-collapse: collapse;
 }
 
 #product_list table tr td {
-        padding: 5px;
-        vertical-align: top;
+    padding: 5px;
+    vertical-align: top;
 }
 
 #product_list .list_image {
-  width:        60px;
-  height:       70px;
+    width:        60px;
+    height:       70px;
 }
 
 #product_list .list_description {
-  width:        60%;
+    width:        60%;
 }
 
 #product_list .list_description dl {
-        margin: 0;
+    margin: 0;
 }
 
 #product_list .list_description dt {
-	color:        #FFA;
-	font-weight:  bold;
-	font-size:    larger;
+    color:        #FFA;
+    font-weight:  bold;
+    font-size:    larger;
 }
 
 #product_list .list_description dd {
-        margin: 0;
+    margin: 0;
 }
 
 #product_list .list_actions {
-  font-size:    x-small;
-  text-align:   right;
-  padding-left: 1em;
+    font-size:    x-small;
+    text-align:   right;
+    padding-left: 1em;
 }
 
 #product_list .list_line_even {
@@ -66,10 +112,12 @@ http://media.pragprog.com/titles/rails4/code/depot_b/public/stylesheets/depot.cs
 }
 
 #product_list .list_line_odd {
-  background:   #f8b0f8;
+    background:   #f8b0f8;
 }
 
-/* An entry in the store catalog */
+/*
+An entry in the store catalog
+*/
 
 #store  .entry {
   overflow: auto;
