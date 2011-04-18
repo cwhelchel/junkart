@@ -7,8 +7,19 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <table id="top-menu">
+    <tr>
+      <td><a href="http://localhost:3000/categories">Categories</a></td>
+      <td><a href="http://localhost:3000/products">Products</a></td>
+      <td><a href="http://localhost:3000/store">Store</a></td>
+      <td><a href="http://localhost:3000/contact">Contact</a></td>
+    </tr>
+  </table>
 
-<%= yield %>
+
+  <div id="main-content">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
