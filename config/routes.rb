@@ -1,4 +1,6 @@
 Junkart2::Application.routes.draw do
+  resources :sites
+
   get "store/index"
   #get "store/sort/:column_name"
   #get "store/sort_by_cat/:cat_id"
