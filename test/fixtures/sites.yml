@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  Name: MyString
+  Address: MyString
+  Phone: MyString
+  email: MyString
+  shipping_cost: 9.99
+
+two:
+  Name: MyString
+  Address: MyString
+  Phone: MyString
+  email: MyString
+  shipping_cost: 9.99

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @site.Name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @site.Address %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @site.Phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @site.email %>
+</p>
+
+<p>
+  <b>Shipping cost:</b>
+  <%= @site.shipping_cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<%= link_to 'Back', sites_path %>
