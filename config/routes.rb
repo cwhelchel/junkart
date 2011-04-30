@@ -1,9 +1,12 @@
 Junkart2::Application.routes.draw do
   resources :sites
 
-  get "store/index"
+  #get "store/index"
+  #match "/" => "store/index"
   #get "store/sort/:column_name"
-  #get "store/sort_by_cat/:cat_id"
+  #get "store/cat_filter(/:id)"
+  #match 'store/cat_filter/:id' => 'store#cat_filter', :as => :category_filter
+  #match 'store/sort/:name' => 'store#sort', :as => :store_sort
 
   resources :categories
 
@@ -16,7 +19,7 @@ Junkart2::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
   match ':controller(/:action(/:id))'
-  match 'store/sort/category/:id' => 'store#sort'
+  #match 'store/sort/category/:id' => 'store#cat_filter'
   
 
   # Sample of named route:
