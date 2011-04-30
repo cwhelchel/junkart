@@ -1,0 +1,14 @@
+<%# Renders a singular product called 'product' as a table row %>
+
+<tr>
+  <td><%= image_tag(product.image, :class => 'list_image') %></td>
+  <td class="list_description">
+    <dl>
+      <dt><%= product.name %></dt>
+      <dd>
+        <%= truncate(strip_tags(product.description), :length => 100) %>
+      </dd>
+    </dl>
+  </td>
+  <td><%= product.price %></td>
+</tr>
