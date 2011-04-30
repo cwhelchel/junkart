@@ -10,6 +10,15 @@ class Product < ActiveRecord::Base
     :message => 'image must be a URL for a GIF, JPG, or PNG image.'
   }
   
+  def new()
+    if self.category_id.nil?
+      # uncategorized or "default" category
+      cat = Category.find_by_name('Junk Art')
+      # this works but it needs to into an init method or something
+      self.category_id = cat.id
+    end
+  end
+  
   def get_category_name()
     cat_id = self.category_id
     
