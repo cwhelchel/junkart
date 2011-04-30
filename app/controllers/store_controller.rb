@@ -1,25 +1,25 @@
 class StoreController < ApplicationController
   def index
-    puts "!!!!!!!!!!!!!!!!!!!! #{url_for(:action => 'sort_by_cat')}"
+    #puts "!!!!!!!!!!!!!!!!!!!! #{url_for(:action => 'sort_by_cat')}"
     session[:cat_filter] = -1
-    @art = Product.all
+    @art= Product.all
   end
   
   # GET store/sort/:column_name
   def sort
     begin
       sort_criteria = params[:id]
-      @art = Product.find(:all, :order => sort_criteria)
-      puts "??????? here is the sort criteria: #{sort_criteria}"
+      filter_cat_id = Integer(session[:cat_filter])
       
-      
-      if (sort_criteria =~ /^[\d]+(\.[\d]+){0,1}$/) != nil
-        # numbers are category ids from -> GET store/sort/category/1
-        puts "it's a category #{sort_criteria.to_i}"
-        @art = Product.find(:all,
-                            :conditions => { :category_id => sort_criteria })
-        session[:cat_filter] = sort_criteria
+      if filter_cat_id > -1
+        temp_art = Product.find(:all,
+                                :conditions => { :category_id => filter_cat_id },
+                                :order => sort_criteria)
+      else
+        temp_art = Product.find(:all, :order => sort_criteria)
       end
+        
+      @art= temp_art
       
       render('index')
     rescue ActiveRecord::StatementInvalid
@@ -28,20 +28,19 @@ class StoreController < ApplicationController
     end
   end
   
-  ## GET store/sort/category/1
-  #def sort_by_cat
-  #  begin
-  #    sort_criteria = params[:cat_id]
-  #    @art = Product.find(:all,:conditions => { :category_id => sort_criteria })
-  #    #@art = Product.find_all_by_category(sort_criteria)
-  #    
-  #    puts "here is the sort criteria: #{sort_criteria}"
-  #    session[:cat_filter] = sort_criteria
-  #    render('index')
-  #  rescue ActiveRecord::StatementInvalid
-  #    puts 'Error sorting: due to invalid SQL. Most likely bad sort column criteria'
-  #    redirect_to :action => 'index'
-  #  end
-  #end
+  # GET 'store/sort/category/:id' => 'store#cat_filter'
+  def cat_filter
+    begin
+      filter_cat_id = params[:id]
+      
+      @art= Product.find(:all, :conditions => { :category_id => filter_cat_id })
+      session[:cat_filter] = filter_cat_id
+      
+      render('index')
+    rescue ActiveRecord::StatementInvalid
+      puts 'Error filtering: probalby due to a bad category id as filter'
+      redirect_to :action => 'index'
+    end
+  end
 
 end
