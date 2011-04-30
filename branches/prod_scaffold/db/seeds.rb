@@ -28,7 +28,15 @@ Product.create(:name => 'Blue and Purple Flower (Large)',
                est laborum.
                },
                :image => "lgblueandpurpleflower50.jpg",
-               :price => 85.00
+               :price => 55.85
+               )
+
+Product.create(:name => 'Swirl Art #1',
+               :description => %{
+               First in the swirl art collection
+               },
+               :image => "swirlart19.jpg",
+               :price => 250.99
                )
 
 Category.create(
@@ -40,7 +48,7 @@ Category.create(
 Category.create(
                 :name => 'Swirl Art',
                 :description => %{
-                A wonderful blue and purple flower. It's quite large.
+                This art is very swirlly.
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
