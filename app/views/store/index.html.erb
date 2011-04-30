@@ -11,10 +11,13 @@
                         Category.all,
                         'id',
                         'name',
-                        {:selected =>  session[:cat_filter].to_i},
-                        :onchange =>"document.location = 'http://localhost:3000/store/sort/category/' + this.value" %>
+                        { :selected =>  session[:cat_filter].to_i },
+                        :onchange => "document.location = 'http://localhost:3000/store/cat_filter/' + this.value"
+                        %>
+                     
 </div>
 
-<%= render 'list' %>
+<%= render 'store' %>
+
 
 
