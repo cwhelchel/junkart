@@ -1,0 +1,6 @@
+page.replace_html('product_list', render('store'))
+page[:product_list].visual_effect :highlight,
+                                  :startcolor => "#006600;",
+                                  :endcolor => "#000000",
+                                  :duration => 1.5
+                                  
