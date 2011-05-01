@@ -20,8 +20,12 @@ class StoreController < ApplicationController
       end
         
       @art= temp_art
+
+      respond_to do |format|
+        format.html { render('index') }
+        format.js   #AJAX -> don't redirect or render
+      end
       
-      render('index')
     rescue ActiveRecord::StatementInvalid
       puts 'Error sorting: due to invalid SQL. Most likely bad sort column criteria'
       redirect_to :action => 'index'
