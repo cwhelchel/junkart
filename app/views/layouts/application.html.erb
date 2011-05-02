@@ -11,10 +11,34 @@
 <body>
   <table id="top-menu">
     <tr>
-      <td><a href="http://localhost:3000/categories">Categories</a></td>
-      <td><a href="http://localhost:3000/products">Products</a></td>
       <td><a href="http://localhost:3000/store">Store</a></td>
       <td><a href="http://localhost:3000/sites">Contact</a></td>
+      <% if session[:user_id].present? %>
+        <td>
+          <%= link_to 'Categories',
+                      categories_url,
+                      :method => :get %>
+        </td>
+        <td>
+          <%= link_to 'Products',
+                      products_url,
+                      :method => :get %>
+        </td>
+      <% end %>
+      <td>
+        <%= link_to 'Login',
+                    login_url,
+                    :method => :get %>
+      </td>
+      
+      <% if session[:user_id].present? %>
+        <td>
+          <%= link_to 'Logout',
+                      logout_url,
+                      :confirm => 'Are you sure?',
+                      :method => :delete %>
+        </td>
+      <% end %>
     </tr>
   </table>
 
