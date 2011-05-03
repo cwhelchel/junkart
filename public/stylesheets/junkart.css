@@ -76,6 +76,7 @@ Styles for products/index
 #product_list table tr td {
     padding: 5px;
     vertical-align: top;
+    width: 10%;
 }
 
 #product_list .list_image {
