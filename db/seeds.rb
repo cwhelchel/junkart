@@ -43,13 +43,20 @@ swirl_cat = Category.find_by_name('Swirl Art')
 puts "junk art id : #{default_cat.id}"
 puts "swirl art id: #{swirl_cat.id}"
 
-Product.create(:name => 'Swirl Art #19',
-               :description => "Number 19 of the Swirl Art collection.",
-               :image => "swirlart19.jpg",
-               :price => 85.00,
+Product.create(:name => 'Swirl Art #01',
+               :description => 'First in the swirl art collection',
+               :image => 'swirlart19.jpg',
+               :price => 250.99,
                :category_id => swirl_cat.id
                )
 
+for i in (5..19)
+  Product.create(:name => "Swirl Art #%02d" % i,
+                 :description => "Number #{i} of the Swirl Art collection.",
+                 :price => rand(200),
+                 :category_id => swirl_cat.id,
+                 :image => "swirlart%02d.jpg" % i)
+end
 
 Product.create(:name => 'Blue and Purple Flower (Large)',
                :description => %{
@@ -67,12 +74,4 @@ Product.create(:name => 'Blue and Purple Flower (Large)',
                :category_id => default_cat.id
                )
 
-Product.create(:name => 'Swirl Art #1',
-               :description => %{
-               First in the swirl art collection
-               },
-               :image => "swirlart19.jpg",
-               :price => 250.99,
-               :category_id => swirl_cat.id
-               )
 
