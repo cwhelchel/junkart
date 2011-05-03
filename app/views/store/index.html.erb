@@ -1,6 +1,23 @@
 <h1>Welcome to the Junkman's Store</h1>
 
-<div class="list_actions">
+<p>
+  Please look through the junk-art we currently have for sale. 
+</p>
+<p>
+  If a piece of art is sold out please contact the artist for a custom order.
+</p>
+
+<div class="store_sort_actions">
+  Filter by category:
+  <%= collection_select :category,
+                        :id,
+                        Category.all,
+                        'id',
+                        'name',
+                        { :selected =>  session[:cat_filter].to_i },
+                        :onchange => "document.location = 'http://localhost:3000/store/cat_filter/' + this.value"
+                        %>
+                        
   Sort by:
   <%= link_to( 'Name',
               { :controller => "store",
@@ -15,19 +32,6 @@
                 :id => 'price' },
               { :remote => true,
                 :method => :post} )%>
-  
-
-
-  Filter by:
-  <%= collection_select :category,
-                        :id,
-                        Category.all,
-                        'id',
-                        'name',
-                        { :selected =>  session[:cat_filter].to_i },
-                        :onchange => "document.location = 'http://localhost:3000/store/cat_filter/' + this.value"
-                        %>
-                     
 </div>
 
 <%= render 'store' %>
