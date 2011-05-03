@@ -1,4 +1,6 @@
 class SitesController < ApplicationController
+  skip_before_filter :authorize
+  
   # GET /sites
   # GET /sites.xml
   def index

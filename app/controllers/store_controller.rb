@@ -1,6 +1,7 @@
 class StoreController < ApplicationController
+  skip_before_filter :authorize
+  
   def index
-    #puts "!!!!!!!!!!!!!!!!!!!! #{url_for(:action => 'sort_by_cat')}"
     session[:cat_filter] = -1
     @art= Product.all
   end
