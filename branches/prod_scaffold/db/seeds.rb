@@ -8,6 +8,13 @@
 
 Product.delete_all
 Category.delete_all
+User.delete_all
+
+rootUser = User.new()
+rootUser.name = 'root'
+rootUser.password = 'root'
+rootUser.save
+
 
 # this is the default category
 Category.create(
