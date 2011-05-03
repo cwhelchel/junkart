@@ -58,11 +58,32 @@ Styles form the main content
     padding-top: 4ex;
 }
 
+#main-content p {
+    padding-left: 1em;
+}
+
 #main-content .list_actions {
     font-size:    x-small;
     text-align:   right;
     padding-left: 1em;
     padding-right: 3em;
+}
+
+#main-content .store_sort_actions {
+    font-size:    x-small;
+    text-align:   left;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-bottom: 1em;
+    color:        #99ff99;
+    border-bottom: 1px solid #FFA;
+}
+
+#main-content .store_filter_actions {
+    font-size:    x-small;
+    text-align:   right;
+    padding-left: 1em;
+    padding-right: 3em;	
 }
 
 /*
@@ -71,6 +92,8 @@ Styles for products/index
 
 #product_list table {
     border-collapse: collapse;
+    margin-top: 1em;
+    margin-left: 1em;
 }
 
 #product_list table tr td {
