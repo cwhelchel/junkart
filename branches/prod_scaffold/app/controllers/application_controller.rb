@@ -13,4 +13,15 @@ class ApplicationController < ActionController::Base
         redirect_to login_url, :notice => "Please log in to access this area"
       end
     end
+    
+  private
+    # looks for a cart given the id in a session and if it isn't there then
+    # the app creates one
+    def current_cart
+      Cart.find(session[:cart_id])
+    rescue ActiveRecord::RecordNotFound
+      cart = Cart.create
+      session[:cart_id] = cart.id
+      cart
+    end
 end
