@@ -1,7 +1,11 @@
 <%# Renders a singular product called 'product' as a table row %>
 
 <tr>
-  <td><%= image_tag(product.image, :class => 'list_image') %></td>
+  <td>
+    <%= link_to(image_tag(product.image, :class => 'list_image'),
+                image_path(product.image),
+                { :rel => "lightbox", :title => product.name } ) %>
+  </td>
   <td class="list_description">
     <dl>
       <dt><%= product.name %></dt>
