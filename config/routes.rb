@@ -1,4 +1,6 @@
 Junkart2::Application.routes.draw do
+  resources :carts
+
   get 'admin' => 'admin#index'
 
   controller :sessions do
