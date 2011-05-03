@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_reader   :password
   
   validate :password_must_be_present
+  after_destroy :ensure_an_admin_remains
 
   def User.encrypt_password(password, salt)
     Digest::SHA2.hexdigest(password + "junk" + salt)
@@ -27,6 +28,12 @@ class User < ActiveRecord::Base
     if password.present?
       generate_salt
       self.hased_password = self.class.encrypt_password(password, salt)
+    end
+  end
+  
+  def ensure_an_admin_remains
+    if User.count.zero?
+      raise "Can't delete the last user account."
     end
   end
   
