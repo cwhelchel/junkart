@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :category
+  has_many :line_items
   
   validates :name, :description, :presence => true
   validates :name, :uniqueness => true
@@ -9,6 +10,8 @@ class Product < ActiveRecord::Base
     :with    => %r{\.(gif|jpg|png)$}i, # ends w/ proper extension
     :message => 'image must be a URL for a GIF, JPG, or PNG image.'
   }
+  
+  before_destroy :ensure_not_ref_by_any_line_item
   
   def new()
     if self.category_id.nil?
@@ -33,4 +36,15 @@ class Product < ActiveRecord::Base
     end
     cat.name
   end
+  
+  private
+    # before_destroy make sure no line items ref this product
+    def ensure_not_ref_by_any_line_item
+      if line_items.empty?
+        return true
+      else
+        errors.add(:base, 'Product is referenced by a line item')
+        return false
+      end
+    end
 end
