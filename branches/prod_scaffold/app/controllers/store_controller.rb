@@ -20,7 +20,7 @@ class StoreController < ApplicationController
         temp_art = Product.find(:all, :order => sort_criteria)
       end
         
-      @art= temp_art
+      @art = temp_art
 
       respond_to do |format|
         format.html { render('index') }
