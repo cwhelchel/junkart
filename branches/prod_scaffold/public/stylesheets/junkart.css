@@ -3,33 +3,13 @@ Stolen from pragprog's depot application
 http://media.pragprog.com/titles/rails4/code/depot_b/public/stylesheets/depot.css
 */
 
-/*
-Global styles
-*/
-
-#store #notice {
-    color: #000;
-    border: 2px solid red;
-    padding: 1em;
-    margin-bottom: 2em;
-    background-color: #f0f0f0;
-    font: bold smaller sans-serif;
-}
-
-#store h1 {
-    font:  150% sans-serif;
-    color: #226;
-    border-bottom: 3px dotted #77d;
-}
-
-/*
+/**********************************************
 Styles for the top-menu
-*/
+**********************************************/
 
 #top-menu {
     margin-left: 15em;
     padding-top: 1em;
-    padding-bottom: 1em;
 }
 
 #top-menu td {
@@ -49,9 +29,9 @@ Styles for the top-menu
     text-decoration: underline;
 }
 
-/*
+/**********************************************
 Styles form the main content
-*/
+**********************************************/
 
 #main-content {
     margin-left: 15em;
@@ -86,9 +66,9 @@ Styles form the main content
     padding-right: 3em;	
 }
 
-/*
+/**********************************************
 Styles for products/index
-*/
+**********************************************/
 
 #product_list table {
     border-collapse: collapse;
@@ -139,6 +119,26 @@ Styles for products/index
     background:   #f8b0f8;
 }
 
+/**********************************************
+Store div styles
+**********************************************/
+
+#store #notice {
+    color: #000;
+    border: 2px solid red;
+    padding: 1em;
+    margin-bottom: 1em;
+    background-color: #999999;
+    font: bold smaller sans-serif;
+    width: 50%;
+}
+
+#store h1 {
+    font:  200% sans-serif;
+    color: #006600;
+    border-bottom: 3px dotted #006600;
+}
+
 /*
 An entry in the store catalog
 */
@@ -186,4 +186,14 @@ An entry in the store catalog
   color: #44a;
   font-weight: bold;
   margin-right: 2em;
+}
+
+/*
+ cart styles
+*/
+
+#main-content .cart_table .total_line{
+    text-align: right;
+    font-weight: bold;
+    border-top: 1px solid #595
 }
