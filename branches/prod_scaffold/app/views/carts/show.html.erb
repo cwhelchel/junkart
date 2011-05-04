@@ -2,19 +2,7 @@
 
 <div id="cart">
 <h2>Your Cart</h2>
-<table class="cart_table">
-  <% @cart.line_items.each do |item| %>
-    <tr>
-      <td><%= item.product.name %> &times;</td>
-      <td><%= item.quantity %></td>
-      <td><%= number_to_currency(item.total_price) %></td>
-    </tr>
-  <% end %>
-  
-  <tr class="total_line">
-    <td colspan="2">Total</td>
-    <td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
-  </tr>
-</table>
+<%= render @cart %>
+
 </div>
 <%= button_to 'Empty Cart', @cart, :method => :delete, :confirm => 'Do you want to emty the cart?' %>
