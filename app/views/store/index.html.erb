@@ -1,10 +1,8 @@
 <div id="store">
-  <% if notice %>
-    <p id="notice"><%= notice %></p>
-  <% end %>
   
+  <%= render_notice %>
   <h1>Welcome to the Junkman's Store</h1>
-  
+
   <p>
     Please look through the junk-art we currently have for sale. 
   </p>
@@ -37,6 +35,8 @@
                   :id => 'price' },
                 { :remote => true,
                   :method => :post} )%>
+                  
+    <%= render 'carts/cart_summary' %>
   </div>
   
   <%= render 'store' %>
