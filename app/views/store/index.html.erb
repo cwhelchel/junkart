@@ -1,40 +1,46 @@
-<h1>Welcome to the Junkman's Store</h1>
-
-<p>
-  Please look through the junk-art we currently have for sale. 
-</p>
-<p>
-  If a piece of art is sold out please contact the artist for a custom order.
-</p>
-
-<div class="store_sort_actions">
-  Filter by category:
-  <%= collection_select :category,
-                        :id,
-                        Category.all,
-                        'id',
-                        'name',
-                        { :selected =>  session[:cat_filter].to_i },
-                        :onchange => "document.location = 'http://localhost:3000/store/cat_filter/' + this.value"
-                        %>
-                        
-  Sort by:
-  <%= link_to( 'Name',
-              { :controller => "store",
-                :action => "sort",
-                :id => 'name' },
-              { :remote => true,
-                :method => :post} )%>
-                
-  <%= link_to( 'Price',
-              { :controller => "store",
-                :action => "sort",
-                :id => 'price' },
-              { :remote => true,
-                :method => :post} )%>
+<div id="store">
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+  
+  <h1>Welcome to the Junkman's Store</h1>
+  
+  <p>
+    Please look through the junk-art we currently have for sale. 
+  </p>
+  <p>
+    If a piece of art is sold out please contact the artist for a custom order.
+  </p>
+  
+  <div class="store_sort_actions">
+    Filter by category:
+    <%= collection_select :category,
+                          :id,
+                          Category.all,
+                          'id',
+                          'name',
+                          { :selected =>  session[:cat_filter].to_i },
+                          :onchange => "document.location = 'http://localhost:3000/store/cat_filter/' + this.value"
+                          %>
+                          
+    Sort by:
+    <%= link_to( 'Name',
+                { :controller => "store",
+                  :action => "sort",
+                  :id => 'name' },
+                { :remote => true,
+                  :method => :post} )%>
+                  
+    <%= link_to( 'Price',
+                { :controller => "store",
+                  :action => "sort",
+                  :id => 'price' },
+                { :remote => true,
+                  :method => :post} )%>
+  </div>
+  
+  <%= render 'store' %>
 </div>
-
-<%= render 'store' %>
 
 
 
