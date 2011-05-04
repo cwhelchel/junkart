@@ -1,0 +1,8 @@
+<div id="cart_summary">
+<% if @cart %>
+  <% if @cart.line_items.count > 0 %>
+    You have <%= pluralize(@cart.total_quantity, 'item') %> in your
+    <%= link_to("cart",cart_path(@cart)) %>  
+  <% end %>
+<% end %>
+</div>
