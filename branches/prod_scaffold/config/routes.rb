@@ -10,17 +10,16 @@ Junkart2::Application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
+  
+  controller :store do
+    get 'index' => :index
+    post 'sort' => :sort
+    post 'cat_filter' => :cat_filter
+  end
 
   resources :users
 
   resources :sites
-
-  #get "store/index"
-  #match "/" => "store/index"
-  #get "store/sort/:column_name"
-  #get "store/cat_filter(/:id)"
-  #match 'store/cat_filter/:id' => 'store#cat_filter', :as => :category_filter
-  #match 'store/sort/:name' => 'store#sort', :as => :store_sort
 
   resources :categories
 
@@ -39,6 +38,7 @@ Junkart2::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+  match 'store' => 'store#index', :as => :store
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
