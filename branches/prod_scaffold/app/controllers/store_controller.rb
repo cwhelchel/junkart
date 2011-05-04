@@ -3,12 +3,14 @@ class StoreController < ApplicationController
   
   def index
     session[:cat_filter] = -1
-    @art= Product.all
+    @art = Product.all
+    @cart = current_cart
   end
   
   # GET store/sort/:column_name
   def sort
     begin
+      @cart = current_cart
       sort_criteria = params[:id]
       filter_cat_id = Integer(session[:cat_filter])
       
@@ -36,6 +38,7 @@ class StoreController < ApplicationController
   # GET 'store/sort/category/:id' => 'store#cat_filter'
   def cat_filter
     begin
+      @cart = current_cart
       filter_cat_id = params[:id]
       
       @art= Product.find(:all, :conditions => { :category_id => filter_cat_id })
