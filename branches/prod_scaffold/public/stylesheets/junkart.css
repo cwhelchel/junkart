@@ -161,7 +161,6 @@ An entry in the store catalog
   float: left;
 }
 
-
 #store .entry h3 {
  margin-top: 0;
  margin-bottom: 2px;
@@ -196,4 +195,10 @@ An entry in the store catalog
     text-align: right;
     font-weight: bold;
     border-top: 1px solid #595
+}
+
+#cart_summary {
+    text-align: right;
+	float: right;
+	font-size: x-small;
 }
