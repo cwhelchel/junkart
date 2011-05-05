@@ -1,2 +1,54 @@
-<h1>Admin#index</h1>
+<h1>Welcome to the Junkman's Administration Panel</h1>
 <p>Welcome Administrator: <%= @admin_name %></p>
+
+
+
+  <p>
+    Please Choose From The Following Options: 
+  </p>
+  
+     </br>
+  </br>
+  
+ 
+ 
+  <td>
+          <%= link_to 'Edit Users',
+                      users_url,
+                      :method => :get %>
+  </td>
+  
+ 
+  
+    </br>
+  </br>
+  
+  <td>
+          <%= link_to 'Edit Products',
+                      products_url,
+                      :method => :get %>
+  </td>
+  
+  </br>
+  </br>
+  
+  
+  
+    <td>
+          <%= link_to 'Edit Categories',
+                      categories_url,
+                      :method => :get %>
+    </td>
+    
+  </br>
+  </br>
+  
+  
+      <td>
+          <%= link_to 'Edit Contact Information',
+                      sites_url,
+                      :method => :get %>
+    </td>
+    
+  </br>
+  </br>
